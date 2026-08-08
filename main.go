@@ -94,9 +94,15 @@ func worker(id int, client *http.Client, jobs <-chan string, results chan<- Resu
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: go run main.go <url>")
-		fmt.Println("Example: go run main.go https://example.com")
+		fmt.Println("Usage:")
+		fmt.Println("  go run . <url>       Check links for a single URL (CLI mode)")
+		fmt.Println("  go run . -server     Start the web server")
 		os.Exit(1)
+	}
+
+	if os.Args[1] == "-server" {
+		runServer()
+		return
 	}
 
 	startURL := os.Args[1]
