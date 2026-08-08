@@ -1,4 +1,5 @@
 # Concurrent Link Checker
+![Go CI](https://github.com/dhvani7014/concurrent-link-checker/actions/workflows/go.yml/badge.svg)
 
 A CLI tool written in Go that crawls a webpage, extracts all its links, and checks them concurrently using a worker-pool pattern (goroutines + channels).
 
