@@ -93,6 +93,11 @@ func worker(id int, client *http.Client, jobs <-chan string, results chan<- Resu
 }
 
 func main() {
+	if os.Getenv("PORT") != "" {
+		runServer()
+		return
+	}
+	
 	if len(os.Args) < 2 {
 		fmt.Println("Usage:")
 		fmt.Println("  go run . <url>       Check links for a single URL (CLI mode)")
